@@ -49,7 +49,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 555);
+            this.button1.Size = new System.Drawing.Size(216, 487);
             this.button1.TabIndex = 0;
             this.button1.Text = "Registrar Alumno";
             this.button1.UseVisualStyleBackColor = true;
@@ -78,6 +78,7 @@
             // 
             // btnPromedio
             // 
+            this.btnPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPromedio.Location = new System.Drawing.Point(28, 49);
             this.btnPromedio.Name = "btnPromedio";
             this.btnPromedio.Size = new System.Drawing.Size(75, 41);
@@ -88,6 +89,7 @@
             // 
             // btnVer
             // 
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVer.Location = new System.Drawing.Point(27, 44);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(148, 45);
@@ -98,6 +100,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(130, 45);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(70, 48);

@@ -9,7 +9,7 @@ namespace Ejercicio_1.Models
     public class Controlador
     {
          public int[] dni = new int[1000];
-         public string[] nombre = new string[1000];
+         public string[] nombres = new string[1000];
          public double[] notas = new double[1000];
         public string[] nombremayor = new string[1000];
         public double[] mayornota = new double[1000];
@@ -18,13 +18,15 @@ namespace Ejercicio_1.Models
         public int contadorprom = 0;
         public double promedio = 0;
         public int ret;
+
+
         public void agregar(int nmrodni, string nombre, double nota)
         {
             dni[contador] = nmrodni;
-            this.nombre[contador] = nombre;
+            nombres[contador] = nombre;
             notas[contador] = nota;
 
-            contador ++;
+            contador++;
         }
 
         public double calcularpromedio()
@@ -56,7 +58,7 @@ namespace Ejercicio_1.Models
                 {
                     mayornota[contadorprom] = notas[i];
                     mayordni[contadorprom] = dni[i];
-                    nombremayor[contadorprom] = nombre[i];
+                    nombremayor[contadorprom] = nombres[i];
 
                     contadorprom++;
                 }
@@ -97,13 +99,15 @@ namespace Ejercicio_1.Models
         {
             ret = -1;
 
-            for (int i = 0; i < contador;)
+            int i = 0;
+            while(i<contador && ret==-1)
             {
                 if (dni[i] == buscado)
                 {
                     ret = i;
                 }
 
+                i++;
             }
 
             return ret;

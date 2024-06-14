@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,12 @@ namespace Ejercicio_1
         public Form1()
         {
             InitializeComponent();
+
+
+            mismetodos.agregar(1, "a", 1);
+            mismetodos.agregar(3, "c", 99);
+            mismetodos.agregar(2, "b", 80);
+            mismetodos.agregar(4, "d", 85);
         }
 
 
@@ -60,27 +67,31 @@ namespace Ejercicio_1
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            while(opcion.ShowDialog() == DialogResult.OK)
+             while(opcion.ShowDialog() == DialogResult.OK)
             {
-                mismetodos.calcularpromedio();
-                mismetodos.Alumnosmayorpromedio();
-                mismetodos.metodoburbuja();
+               
+                opcion.lbLista.Items.Clear();
                 if (opcion.rbTodos.Checked)
                 {
                     opcion.lbLista.Items.Clear();
                     for(int i = 0; i<mismetodos.contador; i++)
                     {
-                        opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombre[i]}");
+                        opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombres[i]}");
                         opcion.lbLista.Items.Add($"DNI: {mismetodos.dni[i]}");
                         opcion.lbLista.Items.Add($"Nota: {mismetodos.notas[i]}");
                         opcion.lbLista.Items.Add($"---------------------------------");
                     }
                 }
                 else if (opcion.rbMayorMenor.Checked)
-                {
-                    opcion.lbLista.Items.Clear();
+                { 
+                        mismetodos.calcularpromedio();
+                        mismetodos.Alumnosmayorpromedio();
+                        mismetodos.metodoburbuja();
+                    
                     if (mismetodos.contadorprom > 1)
                     {
+                        opcion.lbLista.Items.Add("el mayor promedio y el menor");
+
                         opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombremayor[0]}");
                         opcion.lbLista.Items.Add($"DNI: {mismetodos.mayordni[0]}");
                         opcion.lbLista.Items.Add($"Nota: {mismetodos.mayornota[0]}");
@@ -109,18 +120,22 @@ namespace Ejercicio_1
         {
             int dni = Convert.ToInt32(tbBuscar.Text);
 
-            if(mismetodos.metodosecuencial(dni) != -1)
+            int idx = mismetodos.metodosecuencial(dni);
+
+            if ( idx != -1)
             {
                 lbBuscar.Items.Clear();
-                lbBuscar.Items.Add($"*Nombre: {mismetodos.nombre[mismetodos.metodosecuencial(dni)]}");
+                lbBuscar.Items.Add($"*Nombre: {mismetodos.nombres[idx]}");
                 lbBuscar.Items.Add($"*DNI: {dni}");
-                lbBuscar.Items.Add($"*Nota: {mismetodos.notas[mismetodos.metodosecuencial(dni)]}");
+                lbBuscar.Items.Add($"*Nota: {mismetodos.notas[idx]}");
             }
-            else if(mismetodos.metodosecuencial(dni) == -1)
+            else 
             {
                 lbBuscar.Items.Clear();
                 lbBuscar.Items.Add("¡Alumno no encontrado!");
             }
+
+            tbBuscar.Clear();
 
         }
 

@@ -17,7 +17,7 @@ namespace Ejercicio_1.Models
          public int contador = 0;
         public int contadorprom = 0;
         public double promedio = 0;
-
+        public int ret;
         public void agregar(int nmrodni, string nombre, double nota)
         {
             dni[contador] = nmrodni;
@@ -48,12 +48,11 @@ namespace Ejercicio_1.Models
         public void Alumnosmayorpromedio()
         {
 
+            contadorprom = 0;
             calcularpromedio();
-
             for (int i = 0;i < contador; i++)
             {
-                contadorprom = 0;
-                if (notas[i] > promedio)
+                if (notas[i] >= promedio)
                 {
                     mayornota[contadorprom] = notas[i];
                     mayordni[contadorprom] = dni[i];
@@ -63,8 +62,55 @@ namespace Ejercicio_1.Models
                 }
             }
 
+        }
+
+        public void metodoburbuja()
+        {
+            for(int i = 0; i<contadorprom-1; i++)
+            {
+                for(int j = i+1; j<contadorprom; j++)
+                {
+                    if (mayornota[i] < mayornota[j])
+                    {
+                        double aux = mayornota[j];
+                        mayornota[j] = mayornota[i];
+                        mayornota[i] = aux;
+
+                        string auxnombre = nombremayor[j];
+                        nombremayor[j] = nombremayor[i];
+                        nombremayor[i] = auxnombre;
+
+                        int auxdni = mayordni[j];
+                        mayordni[j] = mayordni[i];
+                        mayordni[i] = auxdni;
+                    }
+
+                }
+
+
+            }
 
         }
+
+
+        public int metodosecuencial(int buscado)
+        {
+            ret = -1;
+
+            for (int i = 0; i < contador;)
+            {
+                if (dni[i] == buscado)
+                {
+                    ret = i;
+                }
+
+            }
+
+            return ret;
+
+        }
+
+
     }
 
    

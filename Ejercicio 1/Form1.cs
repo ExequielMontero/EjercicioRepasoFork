@@ -33,6 +33,10 @@ namespace Ejercicio_1
                 int Dni = Convert.ToInt32(miregistro.tbDni.Text);
 
                 mismetodos.agregar(Dni, nombre, nota);
+
+                miregistro.tbNombre.Clear();
+                miregistro.tbDni.Clear();
+                miregistro.tbNota.Clear();  
             }
         }
 
@@ -56,31 +60,73 @@ namespace Ejercicio_1
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            if(opcion.ShowDialog() == DialogResult.OK)
+            while(opcion.ShowDialog() == DialogResult.OK)
             {
+                mismetodos.calcularpromedio();
+                mismetodos.Alumnosmayorpromedio();
+                mismetodos.metodoburbuja();
                 if (opcion.rbTodos.Checked)
                 {
-                    lbLista.Items.Clear();
+                    opcion.lbLista.Items.Clear();
                     for(int i = 0; i<mismetodos.contador; i++)
                     {
-                        lbLista.Items.Add($"Nombre: {mismetodos.nombre[i]}");
-                        lbLista.Items.Add($"DNI: {mismetodos.dni[i]}");
-                        lbLista.Items.Add($"Nota: {mismetodos.notas[i]}");
-                        lbLista.Items.Add($"---------------------------------");
+                        opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombre[i]}");
+                        opcion.lbLista.Items.Add($"DNI: {mismetodos.dni[i]}");
+                        opcion.lbLista.Items.Add($"Nota: {mismetodos.notas[i]}");
+                        opcion.lbLista.Items.Add($"---------------------------------");
                     }
                 }
                 else if (opcion.rbMayorMenor.Checked)
                 {
-                    lbLista.Items.Clear();
-                    for (int i = 0; i < mismetodos.contadorprom; i++)
+                    opcion.lbLista.Items.Clear();
+                    if (mismetodos.contadorprom > 1)
                     {
-                        lbLista.Items.Add($"Nombre: {mismetodos.nombremayor[i]}");
-                        lbLista.Items.Add($"DNI: {mismetodos.mayordni[i]}");
-                        lbLista.Items.Add($"Nota: {mismetodos.mayornota[i]}");
-                        lbLista.Items.Add($"---------------------------------");
+                        opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombremayor[0]}");
+                        opcion.lbLista.Items.Add($"DNI: {mismetodos.mayordni[0]}");
+                        opcion.lbLista.Items.Add($"Nota: {mismetodos.mayornota[0]}");
+                        opcion.lbLista.Items.Add($"---------------------------------");
+                        opcion.lbLista.Items.Add($"Nombre: {mismetodos.nombremayor[mismetodos.contadorprom - 1]}");
+                        opcion.lbLista.Items.Add($"DNI: {mismetodos.mayordni[mismetodos.contadorprom - 1]}");
+                        opcion.lbLista.Items.Add($"Nota: {mismetodos.mayornota[mismetodos.contadorprom - 1]}");
+                    }
+                    else if(mismetodos.contadorprom == 1)
+                    {
+                        opcion.lbLista.Items.Clear();
+                        opcion.lbLista.Items.Add("¡Solo un alumno supero el promedio!");
+                    }
+                    else
+                    {
+                        opcion.lbLista.Items.Clear();
+                        opcion.lbLista.Items.Add("¡Ningun alumno ha superado el promedio!");
+                        
                     }
                 }
             }
+            opcion.ShowDialog();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            int dni = Convert.ToInt32(tbBuscar.Text);
+
+            if(mismetodos.metodosecuencial(dni) != -1)
+            {
+                lbBuscar.Items.Clear();
+                lbBuscar.Items.Add($"*Nombre: {mismetodos.nombre[mismetodos.metodosecuencial(dni)]}");
+                lbBuscar.Items.Add($"*DNI: {dni}");
+                lbBuscar.Items.Add($"*Nota: {mismetodos.notas[mismetodos.metodosecuencial(dni)]}");
+            }
+            else if(mismetodos.metodosecuencial(dni) == -1)
+            {
+                lbBuscar.Items.Clear();
+                lbBuscar.Items.Add("¡Alumno no encontrado!");
+            }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

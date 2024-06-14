@@ -16,5 +16,15 @@ namespace Ejercicio_1
         {
             InitializeComponent();
         }
+
+        private void lbLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VerAlumnos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

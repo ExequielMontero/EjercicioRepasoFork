@@ -30,11 +30,17 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnPromedio = new System.Windows.Forms.Button();
             this.lbPromedio = new System.Windows.Forms.Label();
+            this.btnPromedio = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
-            this.lbLista = new System.Windows.Forms.ListBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lbBuscar = new System.Windows.Forms.ListBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -60,6 +66,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Promedio";
             // 
+            // lbPromedio
+            // 
+            this.lbPromedio.AutoSize = true;
+            this.lbPromedio.Location = new System.Drawing.Point(123, 63);
+            this.lbPromedio.Name = "lbPromedio";
+            this.lbPromedio.Size = new System.Drawing.Size(51, 13);
+            this.lbPromedio.TabIndex = 1;
+            this.lbPromedio.Text = "Promedio";
+            this.lbPromedio.Click += new System.EventHandler(this.label1_Click);
+            // 
             // btnPromedio
             // 
             this.btnPromedio.Location = new System.Drawing.Point(28, 49);
@@ -70,47 +86,80 @@
             this.btnPromedio.UseVisualStyleBackColor = true;
             this.btnPromedio.Click += new System.EventHandler(this.btnPromedio_Click);
             // 
-            // lbPromedio
-            // 
-            this.lbPromedio.AutoSize = true;
-            this.lbPromedio.Location = new System.Drawing.Point(139, 63);
-            this.lbPromedio.Name = "lbPromedio";
-            this.lbPromedio.Size = new System.Drawing.Size(35, 13);
-            this.lbPromedio.TabIndex = 1;
-            this.lbPromedio.Text = "label1";
-            this.lbPromedio.Click += new System.EventHandler(this.label1_Click);
-            // 
             // btnVer
             // 
-            this.btnVer.Location = new System.Drawing.Point(298, 202);
+            this.btnVer.Location = new System.Drawing.Point(27, 44);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(75, 58);
+            this.btnVer.Size = new System.Drawing.Size(148, 45);
             this.btnVer.TabIndex = 2;
-            this.btnVer.Text = "Ver Alumnos";
+            this.btnVer.Text = "Ver Lista de Alumnos";
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
-            // lbLista
+            // btnBuscar
             // 
-            this.lbLista.FormattingEnabled = true;
-            this.lbLista.Location = new System.Drawing.Point(237, 302);
-            this.lbLista.Name = "lbLista";
-            this.lbLista.Size = new System.Drawing.Size(200, 225);
-            this.lbLista.TabIndex = 3;
+            this.btnBuscar.Location = new System.Drawing.Point(130, 45);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(70, 48);
+            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.Text = "Buscar Alumno por DNI";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lbBuscar
+            // 
+            this.lbBuscar.FormattingEnabled = true;
+            this.lbBuscar.Location = new System.Drawing.Point(14, 131);
+            this.lbBuscar.Name = "lbBuscar";
+            this.lbBuscar.Size = new System.Drawing.Size(200, 56);
+            this.lbBuscar.TabIndex = 5;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnVer);
+            this.groupBox2.Location = new System.Drawing.Point(238, 160);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(206, 117);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ver Lista de Alumnos";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tbBuscar);
+            this.groupBox3.Controls.Add(this.btnBuscar);
+            this.groupBox3.Controls.Add(this.lbBuscar);
+            this.groupBox3.Location = new System.Drawing.Point(224, 294);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(220, 193);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Buscar Alumno";
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.Location = new System.Drawing.Point(14, 60);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(100, 20);
+            this.tbBuscar.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 555);
-            this.Controls.Add(this.lbLista);
-            this.Controls.Add(this.btnVer);
+            this.ClientSize = new System.Drawing.Size(456, 499);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -122,7 +171,11 @@
         private System.Windows.Forms.Label lbPromedio;
         private System.Windows.Forms.Button btnPromedio;
         private System.Windows.Forms.Button btnVer;
-        private System.Windows.Forms.ListBox lbLista;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ListBox lbBuscar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tbBuscar;
     }
 }
 

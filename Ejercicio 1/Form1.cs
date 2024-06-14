@@ -21,11 +21,11 @@ namespace Ejercicio_1
         {
             InitializeComponent();
 
+            mismetodos.agregar(44763336, "Exequiel", 10);
+            mismetodos.agregar(1, "a", 9);
+            mismetodos.agregar(2, "b", 8);
+            mismetodos.agregar(3, "c", 9.7);
 
-            mismetodos.agregar(1, "a", 1);
-            mismetodos.agregar(3, "c", 99);
-            mismetodos.agregar(2, "b", 80);
-            mismetodos.agregar(4, "d", 85);
         }
 
 
@@ -120,26 +120,54 @@ namespace Ejercicio_1
         {
             int dni = Convert.ToInt32(tbBuscar.Text);
 
-            int idx = mismetodos.metodosecuencial(dni);
-
-            if ( idx != -1)
+            if (rbSecuencial.Checked)
             {
-                lbBuscar.Items.Clear();
-                lbBuscar.Items.Add($"*Nombre: {mismetodos.nombres[idx]}");
-                lbBuscar.Items.Add($"*DNI: {dni}");
-                lbBuscar.Items.Add($"*Nota: {mismetodos.notas[idx]}");
-            }
-            else 
-            {
-                lbBuscar.Items.Clear();
-                lbBuscar.Items.Add("¡Alumno no encontrado!");
-            }
+                int idx = mismetodos.metodosecuencial(dni);
+                
+                if (idx != -1)
+                {
+                    lbBuscar.Items.Clear();
+                    lbBuscar.Items.Add($"*Nombre: {mismetodos.nombres[idx]}");
+                    lbBuscar.Items.Add($"*DNI: {dni}");
+                    lbBuscar.Items.Add($"*Nota: {mismetodos.notas[idx]}");
+                }
+                else
+                {
+                    lbBuscar.Items.Clear();
+                    lbBuscar.Items.Add("¡Alumno no encontrado!");
+                }
 
-            tbBuscar.Clear();
+                tbBuscar.Clear();
+            }
+            else if (rbBinaria.Checked)
+            {
+                mismetodos.metodoburbujabinario();
+                int idx = mismetodos.metodobinario(dni);
+
+                if (idx != -1)
+                {
+                    lbBuscar.Items.Clear();
+                    lbBuscar.Items.Add($"*Nombre: {mismetodos.nombres[idx]}");
+                    lbBuscar.Items.Add($"*DNI: {dni}");
+                    lbBuscar.Items.Add($"*Nota: {mismetodos.notas[idx]}");
+                }
+                else
+                {
+                    lbBuscar.Items.Clear();
+                    lbBuscar.Items.Add("¡Alumno no encontrado!");
+                }
+
+                tbBuscar.Clear();
+            }
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
 
         }

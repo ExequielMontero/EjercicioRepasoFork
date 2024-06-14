@@ -38,6 +38,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.rbSecuencial = new System.Windows.Forms.RadioButton();
+            this.rbBinaria = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,7 +103,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(130, 45);
+            this.btnBuscar.Location = new System.Drawing.Point(139, 45);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(70, 48);
             this.btnBuscar.TabIndex = 4;
@@ -112,7 +114,7 @@
             // lbBuscar
             // 
             this.lbBuscar.FormattingEnabled = true;
-            this.lbBuscar.Location = new System.Drawing.Point(14, 131);
+            this.lbBuscar.Location = new System.Drawing.Point(9, 113);
             this.lbBuscar.Name = "lbBuscar";
             this.lbBuscar.Size = new System.Drawing.Size(200, 56);
             this.lbBuscar.TabIndex = 5;
@@ -129,6 +131,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.rbSecuencial);
+            this.groupBox3.Controls.Add(this.rbBinaria);
             this.groupBox3.Controls.Add(this.tbBuscar);
             this.groupBox3.Controls.Add(this.btnBuscar);
             this.groupBox3.Controls.Add(this.lbBuscar);
@@ -141,10 +145,33 @@
             // 
             // tbBuscar
             // 
-            this.tbBuscar.Location = new System.Drawing.Point(14, 60);
+            this.tbBuscar.Location = new System.Drawing.Point(14, 73);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(100, 20);
             this.tbBuscar.TabIndex = 6;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
+            // 
+            // rbSecuencial
+            // 
+            this.rbSecuencial.AutoSize = true;
+            this.rbSecuencial.Location = new System.Drawing.Point(13, 22);
+            this.rbSecuencial.Name = "rbSecuencial";
+            this.rbSecuencial.Size = new System.Drawing.Size(129, 17);
+            this.rbSecuencial.TabIndex = 3;
+            this.rbSecuencial.TabStop = true;
+            this.rbSecuencial.Text = "Busqueda Secuencial";
+            this.rbSecuencial.UseVisualStyleBackColor = true;
+            // 
+            // rbBinaria
+            // 
+            this.rbBinaria.AutoSize = true;
+            this.rbBinaria.Location = new System.Drawing.Point(13, 45);
+            this.rbBinaria.Name = "rbBinaria";
+            this.rbBinaria.Size = new System.Drawing.Size(108, 17);
+            this.rbBinaria.TabIndex = 4;
+            this.rbBinaria.TabStop = true;
+            this.rbBinaria.Text = "Busqueda Binaria";
+            this.rbBinaria.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -179,6 +206,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbBuscar;
+        private System.Windows.Forms.RadioButton rbSecuencial;
+        private System.Windows.Forms.RadioButton rbBinaria;
     }
 }
 

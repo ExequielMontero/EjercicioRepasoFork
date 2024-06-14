@@ -114,6 +114,69 @@ namespace Ejercicio_1.Models
 
         }
 
+        public int metodobinario(int buscado)
+        {
+            int izq, der, medio, ret = -1;
+            bool bandera = false;
+            izq = 0;
+            der = contador - 1;
+
+            do
+            {
+                medio = (izq + der) / 2;
+                if (dni[medio] == buscado)
+                {
+                    bandera = true;
+                }
+                else if (dni[medio] < buscado)
+                {
+                    izq = medio + 1;
+                }
+                else
+                {
+                    der = medio-1;
+                }
+
+            } while ((izq <= der) && (bandera != false));
+
+
+            if(bandera)
+            {
+                ret = medio;
+            }
+
+            return ret;
+
+
+        }
+
+        public void metodoburbujabinario()
+        {
+            for (int i = 0; i < contador - 1; i++)
+            {
+                for (int j = i + 1; j < contador; j++)
+                {
+                    if (notas[i] < notas[j])
+                    {
+                        double aux = notas[j];
+                        notas[j] = notas[i];
+                        notas[i] = aux;
+
+                        string auxnombre = nombres[j];
+                        nombres[j] = nombres[i];
+                        nombres[i] = auxnombre;
+
+                        int auxdni = dni[j];
+                        dni[j] = dni[i];
+                        dni[i] = auxdni;
+                    }
+
+                }
+
+
+            }
+
+        }
 
     }
 

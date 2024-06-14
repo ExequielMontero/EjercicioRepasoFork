@@ -1,0 +1,6 @@
+Ventana Modal:
+1- crear nuevo formulario
+2- preparo la interfaz de mi ventana modal
+3- Darle modificacion de acceso Public a mis TextBox para poder acceder desde mi formulario 1
+4- Luego, darle un DialogResult
+
